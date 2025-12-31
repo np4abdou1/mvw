@@ -7,8 +7,6 @@ class Palette:
 
         self.style = self.get_style()
 
-
-
     def _get_theme(self, theme: str) -> TerminalTheme:
         """Returns the TerminalTheme based on string"""
         themes = {

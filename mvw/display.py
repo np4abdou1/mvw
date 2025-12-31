@@ -113,7 +113,7 @@ class DisplayManager:
         svg_path = path.screenshot_dir / f"{self.movie['title']} ({self.movie['year']}).png"
 
         try:
-            command = ["mvw", "preview", self.movie['title']]
+            command = ["mvw", "preview", "-t", self.movie['title']]
 
             result = subprocess.run(
                 command,

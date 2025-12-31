@@ -35,8 +35,9 @@ class ConfigManager:
         self.config['UI'] = {
             'moai': 'true',
             'poster_width': '25',
-            'theme': 'tokyonight',
+            'theme': 'gruvbox',
             'review': 'true',
+            'hide_key': 'true',
         }
         self.config['DATA'] = {'worldwide_boxoffice': 'false'}
 
@@ -81,11 +82,20 @@ class ConfigManager:
         table.add_column("Key", style="yellow")
         table.add_column("Value", style="indian_red")
 
+        show_key = False
+
+        if ConfigManager().get_config("UI", "hide_key").lower() == "true":
+            show_key = True
+
         # Iterate through the sections and keys
         for section in self.config.sections():
             items = self.config.items(section)
             for index, (key, value) in enumerate(items):
                 display_section = section if index == 0 else ""
+
+                if key == "omdb_api_key" and show_key:
+                    value = "*" * len(value)
+
                 table.add_row(display_section, key, value if value != "" else "-")
             table.add_section()
 

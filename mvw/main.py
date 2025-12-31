@@ -29,6 +29,7 @@ def config(
     moai_says: Optional[bool] = typer.Option(None, "--moai", "-m", help="Toggle the Moai help", show_default=False),
     review: Optional[bool] = typer.Option(None, "--review", "-rv", help="Toggle the Review section", show_default=False),
     worldwide_boxoffice: Optional[bool] = typer.Option(None, "--worldwide-boxoffice", "-wb", help="Toggle the boxoffice scope (worldwide vs domestic)", show_default=False),
+    hide_key: Optional[bool] = typer.Option(None, "--hide-key", "-hk", help="Hide the api key", show_default=False),
     reset: bool = typer.Option(False, "--reset", "-r", help="Reset the config into default configuration"),
 ):
     """Config the settings"""
@@ -82,6 +83,15 @@ def config(
             moai.says(f"[green]✓ Poster width ({poster_width}) [italic]resized[/italic] successfully[/]")
         except:
             moai.says(f"[indian_red]x Sorry, Poster Width cannot be other than [italic]whole number[/]\n[dim]                    P/S: no comma[/]")
+
+    if hide_key:
+        hide_key_bool = config_manager.get_config("UI", "hide_key").lower() == "true"
+        if hide_key_bool:
+            config_manager.set_config("UI", "hide_key", "false")
+            moai.says(f"[yellow]The api key will be [italic]shown[/]")
+        else:
+            moai.says(f"[green]The api key will be [italic]hidden[/]")
+            config_manager.set_config("UI", "hide_key", "true")
 
     if theme:
         config_manager.set_config("UI", "theme", theme)
@@ -175,16 +185,7 @@ def edit(
 @app.command(hidden=True)
 def save(movie, poster_local_path):
     """Save the movie display info"""
-    moai.says("Do you want to have an [cyan]\"image\"[/] of your review?\nTo change theme, try [yellow]`mvw config -t <THEME>`[/]")
-    screenshot = click.confirm(
-        "MVW   (.svg)",
-        default=False,
-        prompt_suffix="?",
-        show_default=True
-    )
-
-    if screenshot:
-        DisplayManager(movie, poster_local_path).save_display_movie_info()
+    DisplayManager(movie, poster_local_path).save_display_movie_info()
 
 @app.command()
 def interactive(title: str):
@@ -214,7 +215,17 @@ def interactive(title: str):
             already_reviewed = True
 
         edit(movie, poster_path, already_reviewed)
-        save(movie, poster_path)
+
+        moai.says("Do you want to have an [cyan]\"image\"[/] of your review?\nTo change theme, try [yellow]`mvw config -t <THEME>`[/]")
+        screenshot = click.confirm(
+            "MVW   (.svg)",
+            default=False,
+            prompt_suffix="?",
+            show_default=True
+        )
+
+        if screenshot:
+            save(movie, poster_path)
     else:
         moai.says("Hi, [bold]API key[/] [indian_red]did not found[/], try [italic yellow]`mvw config --help`[/]\n"
                     "While doing that, you can apply Free API key here:\n"
@@ -237,8 +248,18 @@ def list():
 
     if selected_title:
         movie = movie_map[selected_title]
-        save(movie,movie['poster_local_path'])
-        DisplayManager(movie, movie['poster_local_path']).display_movie_info(movie['star'], movie['review'])
+        moai.says("Do you want to have an [cyan]\"image\"[/] of your review?\nTo change theme, try [yellow]`mvw config -t <THEME>`[/]")
+        screenshot = click.confirm(
+            "MVW   (.svg)",
+            default=False,
+            prompt_suffix="?",
+            show_default=True
+        )
+
+        if screenshot:
+            save(movie,movie['poster_local_path'])
+        else:
+            DisplayManager(movie, movie['poster_local_path']).display_movie_info(movie['star'], movie['review'])
 
 @app.command()
 def preview(

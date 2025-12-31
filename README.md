@@ -31,12 +31,29 @@
 ╚═══╝    F: Psst.. his name is MOAI (nice to meet u)                                     
 ```
 ### Interactive
+Default usage where you will get to experience the full experience of MVW. You will get to search, rate, review and also save your review. Every reviews will be saved in your local machine!
+
+![Interactive Command](demos/demo-interactive.gif)
 
 ### List
+You will get to see every past reviews that you had done in a simple interface supported by [iterfzf](https://github.com/dahlia/iterfzf)) which uses the "__Fuzzy Search__"
+
+![List Command](demos/demo-list.gif)
 
 ### Config
+Everything that you can see in the config list can be configurable. From the poster_width, theme, your name, and even worldwide-boxoffice feature
+
+![Config Command](demos/demo-config.gif)
 
 ### Theme
+- Gruvbox (The Default Theme)
+![Gruvbox](images/gruvbox.png)
+
+- Catppuccin
+![Catpuccin](images/catppuccin.png)
+
+- Nord
+![Nord](images/nord.png)
 ---
 
 ## Features
@@ -44,7 +61,7 @@
 | Features | Notes |
 | :----- | :------ |
 | **Auto fetch movie data** | Uses [OMDb API](http://www.omdbapi.com/apikey.aspx) behind the hood to fetch movie data fast |
-| **Pixelated poster** | Unique way to view the poster (fully intentional) |
+| **Pixelated poster** | Unique way to view the poster __(fully intentional)__ |
 | **Configurable poster size** | Can change the poster width |
 | **Review history** | All review are saved in a database |
 | **Autocomplete** | Provided by the Typer library |
@@ -55,7 +72,8 @@
 | **Review Editor** | Use default editor to edit review |
 | **Caching Poster** | No need to download the poster everytime fetching |
 | **Easy update** | When searching same movie, will use past review |
-| **Moai help** | Fun gimmick to help you in the process (can be hide dont worry) |
+| **Reset Config** | Default to the factory setting with single command |
+| **Moai help** | Fun gimmick to help you in the process __(can be hide dont worry)__ |
 
 ```
   ▁▁     ╭─────────────────────────────────────╮
