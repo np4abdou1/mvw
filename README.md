@@ -25,7 +25,7 @@
 
 ---
 
-<img src="images/welcome.png" align="center">
+<img src="https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/images/welcome.png" align="center">
 
 ```
   ▁▁     ╭─────────────────────────────────────╮
@@ -36,30 +36,30 @@
 ### Interactive
 Default usage where you will get to experience the full experience of MVW. You will get to search, rate, review and also save your review. Every reviews will be saved in your local machine!
 
-![Interactive Command](demos/demo-interactive.gif)
+![Interactive Command](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/demos/demo-interactive.gif)
 
 ### List
 You will get to see every past reviews that you had done in a simple interface supported by [iterfzf](https://github.com/dahlia/iterfzf)) which uses the "__Fuzzy Search__"
 
-![List Command](demos/demo-list.gif)
+![List Command](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/demos/demo-list.gif)
 
 ### Config
 Everything that you can see in the config list can be configurable. From the poster_width, theme, your name, and even worldwide-boxoffice feature
 
-![Config Command](demos/demo-config.gif)
+![Config Command](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/demos/demo-config.gif)
 
 ### Theme
 
 > NOTE: Some browser not fully support nerdfont rendering of `svg`, you can see below if it is supported.
 
 - Gruvbox (The Default Theme)
-![Gruvbox](images/gruvbox.svg)
+![Gruvbox](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/images/gruvbox.svg)
 
 - Catppuccin
-![Catpuccin](images/catppuccin.svg)
+![Catpuccin](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/images/catppuccin.svg)
 
 - Nord
-![Nord](images/nord.svg)
+![Nord](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/images/nord.svg)
 ---
 
 ## Features
