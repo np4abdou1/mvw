@@ -121,9 +121,6 @@ mvw
 ### CLI
 
 ```bash
-# Interactive
-mvw interactive                           # Default
-
 # Configure
 mvw config -h
 
