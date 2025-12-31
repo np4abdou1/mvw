@@ -47,13 +47,13 @@ Everything that you can see in the config list can be configurable. From the pos
 
 ### Theme
 - Gruvbox (The Default Theme)
-![Gruvbox](images/gruvbox.png)
+![Gruvbox](images/gruvbox.svg)
 
 - Catppuccin
-![Catpuccin](images/catppuccin.png)
+![Catpuccin](images/catppuccin.svg)
 
 - Nord
-![Nord](images/nord.png)
+![Nord](images/nord.svg)
 ---
 
 ## Features
