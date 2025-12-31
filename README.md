@@ -25,7 +25,7 @@
 
 ---
 
-<img src="images/welcome.png" width="49%" align="center">
+<img src="images/welcome.png" align="center">
 
 ```
   ▁▁     ╭─────────────────────────────────────╮
