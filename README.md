@@ -50,7 +50,8 @@ Everything that you can see in the config list can be configurable. From the pos
 
 ### Theme
 
-> NOTE: Some browser not fully support nerdfont rendering of `svg`, you can see below if it is supported.
+> NOTE: Most modern browser supports nerdfont icons in `svg`, you just need to _choose_ nerdfont as **default** in the settings.
+> You can see `svg` below if it is _supported_.
 
 - Gruvbox (The Default Theme)
 ![Gruvbox](https://raw.githubusercontent.com/fatinul/mvw/v0.1.0/images/gruvbox.svg)
