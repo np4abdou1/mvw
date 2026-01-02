@@ -50,8 +50,11 @@ class DisplayManager:
     def display_movie_info(self, star: float = 0.0, review_text: str = "Your review will show here."):
         """The Movie Review Card"""
         if sys.platform == "win32":
-            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-
+            try:
+                sys.stdout.reconfigure(encoding='utf-8')
+            except AttributeError:
+                os.system('chcp 65001') # Set windows console to UTF-8
+        
         reviewer_name = config_manager.get_config("USER", "name")
         suffix = "'s" if reviewer_name else ""
 

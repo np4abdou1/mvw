@@ -67,6 +67,11 @@ class MovieManager:
         """Fetch movie poster and store in posters in data"""
         poster_link = self.movie['poster'] # pyright: ignore
 
+        # check if poster not exist
+        if poster_link == "N/A":
+            moai.says("Sorry, but we couldn't found the [italic]poster[/], so I will replace it with [dim yellow]'nothing'[/]")
+            poster_link = "https://m.media-amazon.com/images/M/MV5BY2Q5NGEyYTItMTc1Mi00ZjE5LTkyMmYtNWQzOTdiZDEwNjk1XkEyXkFqcGc@._V1_SX300.jpg"
+
         filename = poster_link.split("/")[-1].split("@")[0] + ".jpg"
         file_path = path.poster_dir / filename
 

@@ -9,7 +9,6 @@ from .display import DisplayManager
 from .movie import MovieManager
 from .database import DatabaseManager
 from .moai import Moai
-from .utils import is_nerd_font_installed
 
 app = typer.Typer(help="MVW - CLI MoVie revieW", context_settings={"help_option_names" : ["-h", "--help"]})
 
@@ -199,8 +198,7 @@ def interactive(title: str):
             "Also, To exit at [italic]any[/] point, simply [yellow]`CTRL+c`[/]"
         )
         
-        if not is_nerd_font_installed():
-            moai.says("Also, I [italic]guess[/] that you don't have [yellow]nerdfont[/] installed. Some [italic]icons[/] may not be rendered.")
+        moai.says("[yellow] [/]: If you do not see a [italic yellow]smile[/] icon, [cyan]nerdfont[/] is not installed. ", moai="no")
 
         if not title:
             title = click.prompt("MVW  ", prompt_suffix=">")
