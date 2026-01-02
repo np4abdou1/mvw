@@ -120,7 +120,10 @@ class DisplayManager:
     def save_display_movie_info(self):
         """Save a screenshot of the user's review"""
         import subprocess
-        svg_path = path.screenshot_dir / f"{self.movie['title']} ({self.movie['year']}).svg"
+        title_raw = self.movie['title']
+        year = self.movie['year']
+        title_clean = re.sub(r'[^\w\s.-]', '_', title_raw)
+        svg_path = path.screenshot_dir / f"{title_clean} ({year}).svg"
 
         try:
             command = ["mvw", "preview", "-t", self.movie['title']]
