@@ -3,6 +3,7 @@ import configparser
 from rich.console import Console
 from rich.table import Table
 from rich.box import ROUNDED
+from importlib.metadata import version, PackageNotFoundError
 
 from .moai import Moai
 from .path import PathManager
@@ -101,8 +102,16 @@ class ConfigManager:
 
         console.print(" ")
         console.print(table)
-        console.print(" Try [italic yellow]`config --help`[/] to edit the settings")
+        console.print(f"                   mvw v{self.get_version()}")
+        console.print(" ")
+        console.print("Try [italic yellow]`config --help`[/] to edit the settings")
         console.print("[dim]NOTE: [italic]worldwide_boxoffice[/] will only work for the [italic bold]next added[/] movie[/]")
+
+    def get_version(self):
+        try:
+            return version("mvw")
+        except PackageNotFoundError:
+            return "uknown"
 
 if __name__ == "__main__":
     ConfigManager().show_config()

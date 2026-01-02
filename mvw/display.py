@@ -16,7 +16,6 @@ from .theme import Palette
 
 import os
 import sys
-import io
 
 console = Console(force_terminal=True, soft_wrap=True, color_system="truecolor", legacy_windows=False)
 config_manager = ConfigManager()
